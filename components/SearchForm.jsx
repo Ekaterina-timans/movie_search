@@ -22,12 +22,13 @@ export default function SearchForm(){
 
       return (
         <div>
-          <input type="search" value={searchValue} onChange={(e) => setSearchValue(e.target.value)}/>
-          <button onClick={searchClick}>Найти</button>
-          <div id="result">
+          <h1 className={styles.titleText}>Поиск фильма по названию</h1>
+          <input className={styles.inputText} type="search" value={searchValue} onChange={(e) => setSearchValue(e.target.value)}/>&nbsp;
+          <button className={styles.btnSearch} onClick={searchClick}>Найти</button>
+          <div className={styles.form}>
             {movies.map((movie) => (
               <a href={`https://www.imdb.com/title/${movie.imdbID}`} target="_blank" key={movie.imdbID}>
-                <div className="film">
+                <div className={styles.movie}>
                   <h2>{movie.Title} ({movie.Year})</h2>
                   <img src={movie.Poster} alt={movie.Title} />
                 </div>
